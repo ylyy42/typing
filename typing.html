@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<p id="type"></p>
+
+	<script>
+		let i = 0;
+		let j = 0;
+
+		const textArray = ["HTML", "CSS", "Javascript","jQuery","vue","react"];
+		const speed = 100;
+		const target = document.getElementById("type");
+
+		// function txtnum() {
+		// 	j == textArray.length - 1 ? j = 0 : j++
+		// }
+
+		// function type() {
+		// 	i < textArray[j].length ? (target.innerHTML += textArray[j].charAt(i), i++, setTimeout(type, speed)) : remove()
+		// }
+
+		// function remove() {
+		// 	0 <= i ? (target.innerHTML = target.innerHTML.slice(0, i), i--, setTimeout(remove, speed)) : (type(), txtnum())
+		// }
+
+		function txtnum() {
+			if(j == textArray.length - 1){
+				j = 0;
+			}else{
+				j++;
+			}
+		}
+
+		function type() {
+			if(i < textArray[j].length){
+				target.innerHTML += textArray[j].charAt(i);
+				i++;
+				setTimeout(type, speed);
+			}else{
+				remove();
+			}
+		}
+
+		function remove() {
+			if(0 <= i){
+				target.innerHTML = target.innerHTML.slice(0, i);
+				i--;
+				setTimeout(remove, speed);
+			}else{
+				type();
+				txtnum();
+			}
+		}
+
+		type();
+	</script>
+</body>
+</html>
